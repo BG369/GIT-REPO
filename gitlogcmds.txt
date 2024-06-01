@@ -1,0 +1,909 @@
+Bal@B-Pro GIT-REPO % git --version
+git version 2.15.0
+Bal@B-Pro GIT-REPO % git config --list
+core.excludesfile=~/.gitignore
+core.legacyheaders=false
+core.quotepath=false
+mergetool.keepbackup=true
+push.default=simple
+color.ui=auto
+color.interactive=auto
+repack.usedeltabaseoffset=true
+alias.s=status
+alias.a=!git add . && git status
+alias.au=!git add -u . && git status
+alias.aa=!git add . && git add -u . && git status
+alias.c=commit
+alias.cm=commit -m
+alias.ca=commit --amend
+alias.ac=!git add . && git commit
+alias.acm=!git add . && git commit -m
+alias.l=log --graph --all --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
+alias.ll=log --stat --abbrev-commit
+alias.lg=log --color --graph --pretty=format:'%C(bold white)%h%Creset -%C(bold green)%d%Creset %s %C(bold green)(%cr)%Creset %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+alias.llg=log --color --graph --pretty=format:'%C(bold white)%H %d%Creset%n%s%n%+b%C(bold 
+Bal@B-Pro GIT-REPO % ls 
+Bal@B-Pro GIT-REPO % ls -la
+total 0
+drwxr-xr-x   2 Bal  staff    64 Jun  1 13:16 .
+drwx------@ 75 Bal  staff  2400 Jun  1 13:16 ..
+Bal@B-Pro GIT-REPO % git init
+Initialized empty Git repository in /Users/Bal/Desktop/GIT-REPO/.git/
+Bal@B-Pro GIT-REPO % ls
+Bal@B-Pro GIT-REPO % ls -la
+total 0
+drwxr-xr-x   3 Bal  staff    96 Jun  1 13:23 .
+drwx------@ 75 Bal  staff  2400 Jun  1 13:16 ..
+drwxr-xr-x  10 Bal  staff   320 Jun  1 13:23 .git
+Bal@B-Pro GIT-REPO % git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        index.html
+
+nothing added to commit but untracked files present (use "git add" to track)
+Bal@B-Pro GIT-REPO % git add index.html 
+Bal@B-Pro GIT-REPO % git status        
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+        new file:   index.html
+
+Bal@B-Pro GIT-REPO % git commit -m "First V1 of index.html"
+[master (root-commit) a607393] First V1 of index.html
+ 1 file changed, 12 insertions(+)
+ create mode 100644 index.html
+Bal@B-Pro GIT-REPO % 
+Bal@B-Pro GIT-REPO % git branch
+* master
+Bal@B-Pro GIT-REPO % git log
+commit a6073934bf961f0fa850fd08bb0c8262038c2878 (HEAD -> master)
+Author: Balganesh <bganesh4399@gmail.com>
+Date:   Sat Jun 1 13:28:18 2024 -0400
+
+    First V1 of index.html
+Bal@B-Pro GIT-REPO % git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Bal@B-Pro GIT-REPO % git diff
+diff --git a/index.html b/index.html
+index 56efbdb..a111ff6 100644
+--- a/index.html
++++ b/index.html
+@@ -7,6 +7,7 @@
+     <title>Document</title>
+ </head>
+ <body>
++    this is version v2
+     
+ </body>
+ </html>
+\ No newline at end of file
+Bal@B-Pro GIT-REPO % git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Bal@B-Pro GIT-REPO % git diff  
+diff --git a/index.html b/index.html
+index 56efbdb..9303a32 100644
+--- a/index.html
++++ b/index.html
+@@ -7,6 +7,8 @@
+     <title>Document</title>
+ </head>
+ <body>
++    this is version v2
+     
+ </body>
++
+ </html>
+\ No newline at end of file
+Bal@B-Pro GIT-REPO % git add index.html 
+Bal@B-Pro GIT-REPO % git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   index.html
+
+Bal@B-Pro GIT-REPO % git commit -m "version 2"
+[master 8b172e5] version 2
+ 1 file changed, 2 insertions(+)
+Bal@B-Pro GIT-REPO % git status
+On branch master
+nothing to commit, working tree clean
+Bal@B-Pro GIT-REPO % git log
+commit 8b172e5105e4531343d7f2ca45a5812276bf96eb (HEAD -> master)
+Author: Balganesh <bganesh4399@gmail.com>
+Date:   Sat Jun 1 13:36:01 2024 -0400
+
+    version 2
+
+commit a6073934bf961f0fa850fd08bb0c8262038c2878
+Author: Balganesh <bganesh4399@gmail.com>
+Date:   Sat Jun 1 13:28:18 2024 -0400
+
+    First V1 of index.html
+Bal@B-Pro GIT-REPO % git status
+On branch master
+nothing to commit, working tree clean
+Bal@B-Pro GIT-REPO % git log
+commit 70e58d72b6b71396ad738b5a34f8625a3644e75e (HEAD -> master)
+Author: Balganesh <bganesh4399@gmail.com>
+Date:   Sat Jun 1 13:40:31 2024 -0400
+
+    version 3
+
+commit 8b172e5105e4531343d7f2ca45a5812276bf96eb
+Author: Balganesh <bganesh4399@gmail.com>
+Date:   Sat Jun 1 13:36:01 2024 -0400
+
+    version 2
+
+commit a6073934bf961f0fa850fd08bb0c8262038c2878
+Author: Balganesh <bganesh4399@gmail.com>
+Date:   Sat Jun 1 13:28:18 2024 -0400
+
+    First V1 of index.html
+Bal@B-Pro GIT-REPO % git show a6073934bf961f0fa850fd08bb0c8262038c2878 index.html 
+commit a6073934bf961f0fa850fd08bb0c8262038c2878
+Author: Balganesh <bganesh4399@gmail.com>
+Date:   Sat Jun 1 13:28:18 2024 -0400
+
+    First V1 of index.html
+
+diff --git a/index.html b/index.html
+new file mode 100644
+index 0000000..56efbdb
+--- /dev/null
++++ b/index.html
+@@ -0,0 +1,12 @@
++<!DOCTYPE html>
++<html lang="en">
++<head>
++    <meta charset="UTF-8">
++    <meta http-equiv="X-UA-Compatible" content="IE=edge">
++    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+:...skipping...
+commit a6073934bf961f0fa850fd08bb0c8262038c2878
+Author: Balganesh <bganesh4399@gmail.com>
+Date:   Sat Jun 1 13:28:18 2024 -0400
+
+    First V1 of index.html
+
+diff --git a/index.html b/index.html
+new file mode 100644
+index 0000000..56efbdb
+--- /dev/null
++++ b/index.html
+@@ -0,0 +1,12 @@
++<!DOCTYPE html>
++<html lang="en">
++<head>
++    <meta charset="UTF-8">
++    <meta http-equiv="X-UA-Compatible" content="IE=edge">
++    <meta name="viewport" content="width=device-width, initial-scale=1.0">
++    <title>Document</title>
++</head>
++<body>
++    
++</body>
++</html>
+\ No newline at end of file
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+Bal@B-Pro GIT-REPO % git show 8b172e5105e4531343d7f2ca45a5812276bf96eb index.html
+commit 8b172e5105e4531343d7f2ca45a5812276bf96eb
+Author: Balganesh <bganesh4399@gmail.com>
+Date:   Sat Jun 1 13:36:01 2024 -0400
+
+    version 2
+
+diff --git a/index.html b/index.html
+index 56efbdb..9303a32 100644
+--- a/index.html
++++ b/index.html
+@@ -7,6 +7,8 @@
+     <title>Document</title>
+ </head>
+ <body>
++    this is version v2
+     
+ </body>
++
+ </html>
+\ No newline at end of file
+Bal@B-Pro GIT-REPO % git show 8b172e5105e4531343d7f2ca45a5812276bf96eb:index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    this is version v2
+    
+</body>
+
+</html>
+Bal@B-Pro GIT-REPO % git checkout a6073934bf961f0fa850fd08bb0c8262038c2878 --*
+zsh: no matches found: --*
+Bal@B-Pro GIT-REPO % git checkout a6073934bf961f0fa850fd08bb0c8262038c2878 -- *
+Bal@B-Pro GIT-REPO % git checkout master -- *
+Bal@B-Pro GIT-REPO % git restore .
+git: 'restore' is not a git command. See 'git --help'.
+
+The most similar command is
+        remote
+Bal@B-Pro GIT-REPO % git add index.html 
+Bal@B-Pro GIT-REPO % git diff
+Bal@B-Pro GIT-REPO % git diff --cached
+diff --git a/index.html b/index.html
+index 025141f..76dd59a 100644
+--- a/index.html
++++ b/index.html
+@@ -11,5 +11,6 @@
+     this is version v3
+     
+ </body>
+-
++ksdgfklsdkjgkdfsjhg
++sdagfjksdgak
+ </html>
+\ No newline at end of file
+Bal@B-Pro GIT-REPO % git restore --staged .
+git: 'restore' is not a git command. See 'git --help'.
+
+The most similar command is
+        remote
+Bal@B-Pro GIT-REPO % git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   index.html
+
+Bal@B-Pro GIT-REPO % git reset --staged .
+error: unknown option `staged'
+usage: git reset [--mixed | --soft | --hard | --merge | --keep] [-q] [<commit>]
+   or: git reset [-q] [<tree-ish>] [--] <paths>...
+   or: git reset --patch [<tree-ish>] [--] [<paths>...]
+
+    -q, --quiet           be quiet, only report errors
+    --mixed               reset HEAD and index
+    --soft                reset only HEAD
+    --hard                reset HEAD, index and working tree
+    --merge               reset HEAD, index and working tree
+    --keep                reset HEAD but keep local changes
+    --recurse-submodules[=<reset>]
+                          control recursive updating of submodules
+    -p, --patch           select hunks interactively
+    -N, --intent-to-add   record only the fact that removed paths will be added later
+
+Bal@B-Pro GIT-REPO % git restore --staged .
+git: 'restore' is not a git command. See 'git --help'.
+
+The most similar command is
+        remote
+Bal@B-Pro GIT-REPO % git reset HEAD index.html 
+Unstaged changes after reset:
+M       index.html
+Bal@B-Pro GIT-REPO % git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Bal@B-Pro GIT-REPO % git add
+Nothing specified, nothing added.
+Maybe you wanted to say 'git add .'?
+Bal@B-Pro GIT-REPO % git add index.html 
+Bal@B-Pro GIT-REPO % git commit -m "v5"
+[master 141afe7] v5
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+Bal@B-Pro GIT-REPO % git log 
+commit 141afe71644319c6bd9b46370888579b16b825eb (HEAD -> master)
+Author: Balganesh <bganesh4399@gmail.com>
+Date:   Sat Jun 1 14:07:51 2024 -0400
+
+    v5
+
+commit 70e58d72b6b71396ad738b5a34f8625a3644e75e
+Author: Balganesh <bganesh4399@gmail.com>
+Date:   Sat Jun 1 13:40:31 2024 -0400
+
+    version 3
+
+commit 8b172e5105e4531343d7f2ca45a5812276bf96eb
+Author: Balganesh <bganesh4399@gmail.com>
+Date:   Sat Jun 1 13:36:01 2024 -0400
+
+    version 2
+
+commit a6073934bf961f0fa850fd08bb0c8262038c2878
+Author: Balganesh <bganesh4399@gmail.com>
+Date:   Sat Jun 1 13:28:18 2024 -0400
+
+    First V1 of index.html
+Bal@B-Pro GIT-REPO % git reset --hard HEAD^
+HEAD is now at 70e58d7 version 3
+Bal@B-Pro GIT-REPO % git log
+commit 70e58d72b6b71396ad738b5a34f8625a3644e75e (HEAD -> master)
+Author: Balganesh <bganesh4399@gmail.com>
+Date:   Sat Jun 1 13:40:31 2024 -0400
+
+    version 3
+
+commit 8b172e5105e4531343d7f2ca45a5812276bf96eb
+Author: Balganesh <bganesh4399@gmail.com>
+Date:   Sat Jun 1 13:36:01 2024 -0400
+
+    version 2
+
+commit a6073934bf961f0fa850fd08bb0c8262038c2878
+Author: Balganesh <bganesh4399@gmail.com>
+Date:   Sat Jun 1 13:28:18 2024 -0400
+
+    First V1 of index.html
+Bal@B-Pro GIT-REPO % git log -p -1
+commit 70e58d72b6b71396ad738b5a34f8625a3644e75e (HEAD -> master)
+Author: Balganesh <bganesh4399@gmail.com>
+Date:   Sat Jun 1 13:40:31 2024 -0400
+
+    version 3
+
+diff --git a/index.html b/index.html
+index 9303a32..025141f 100644
+--- a/index.html
++++ b/index.html
+@@ -8,6 +8,7 @@
+ </head>
+ <body>
+     this is version v2
++    this is version v3
+     
+ </body>
+ 
+Bal@B-Pro GIT-REPO % git log -p -2
+commit 70e58d72b6b71396ad738b5a34f8625a3644e75e (HEAD -> master)
+Author: Balganesh <bganesh4399@gmail.com>
+Date:   Sat Jun 1 13:40:31 2024 -0400
+
+    version 3
+
+diff --git a/index.html b/index.html
+index 9303a32..025141f 100644
+--- a/index.html
++++ b/index.html
+@@ -8,6 +8,7 @@
+ </head>
+ <body>
+     this is version v2
++    this is version v3
+     
+ </body>
+ 
+
+commit 8b172e5105e4531343d7f2ca45a5812276bf96eb
+Author: Balganesh <bganesh4399@gmail.com>
+Date:   Sat Jun 1 13:36:01 2024 -0400
+
+    version 2
+
+diff --git a/index.html b/index.html
+index 56efbdb..9303a32 100644
+--- a/index.html
++++ b/index.html
+@@ -7,6 +7,8 @@
+     <title>Document</title>
+ </head>
+ <body>
++    this is version v2
+     
+ </body>
++
+ </html>
+\ No newline at end of file
+Bal@B-Pro GIT-REPO % git log --stat
+commit 70e58d72b6b71396ad738b5a34f8625a3644e75e (HEAD -> master)
+Author: Balganesh <bganesh4399@gmail.com>
+Date:   Sat Jun 1 13:40:31 2024 -0400
+
+    version 3
+
+ index.html | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 8b172e5105e4531343d7f2ca45a5812276bf96eb
+Author: Balganesh <bganesh4399@gmail.com>
+Date:   Sat Jun 1 13:36:01 2024 -0400
+
+    version 2
+
+ index.html | 2 ++
+ 1 file changed, 2 insertions(+)
+
+commit a6073934bf961f0fa850fd08bb0c8262038c2878
+Author: Balganesh <bganesh4399@gmail.com>
+Date:   Sat Jun 1 13:28:18 2024 -0400
+
+    First V1 of index.html
+
+ index.html | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+Bal@B-Pro GIT-REPO % git log --pretty=oneline
+70e58d72b6b71396ad738b5a34f8625a3644e75e (HEAD -> master) version 3
+8b172e5105e4531343d7f2ca45a5812276bf96eb version 2
+a6073934bf961f0fa850fd08bb0c8262038c2878 First V1 of index.html
+Bal@B-Pro GIT-REPO % git log --pretty=format:"%h - %an, %ar:%s" 
+70e58d7 - Balganesh, 37 minutes ago:version 3
+8b172e5 - Balganesh, 42 minutes ago:version 2
+a607393 - Balganesh, 49 minutes ago:First V1 of index.html
+Bal@B-Pro GIT-REPO % git log -S "v3"
+commit 70e58d72b6b71396ad738b5a34f8625a3644e75e (HEAD -> master)
+Author: Balganesh <bganesh4399@gmail.com>
+Date:   Sat Jun 1 13:40:31 2024 -0400
+
+    version 3
+Bal@B-Pro GIT-REPO % git log --grep="v"
+commit 70e58d72b6b71396ad738b5a34f8625a3644e75e (HEAD -> master)
+Author: Balganesh <bganesh4399@gmail.com>
+Date:   Sat Jun 1 13:40:31 2024 -0400
+
+    version 3
+
+commit 8b172e5105e4531343d7f2ca45a5812276bf96eb
+Author: Balganesh <bganesh4399@gmail.com>
+Date:   Sat Jun 1 13:36:01 2024 -0400
+
+    version 2
+Bal@B-Pro GIT-REPO % git log --grep="3"
+commit 70e58d72b6b71396ad738b5a34f8625a3644e75e (HEAD -> master)
+Author: Balganesh <bganesh4399@gmail.com>
+Date:   Sat Jun 1 13:40:31 2024 -0400
+
+    version 3
+Bal@B-Pro GIT-REPO % git remote add origin https://github.com/BG369/GIT-REPO.git
+fatal: remote origin already exists.
+Bal@B-Pro GIT-REPO % git branch
+* master
+Bal@B-Pro GIT-REPO % git branch -M main
+Bal@B-Pro GIT-REPO % git push -u origin main
+Counting objects: 9, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (9/9), 878 bytes | 878.00 KiB/s, done.
+Total 9 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), done.
+To https://github.com/BG369/GIT-REPO.git
+ * [new branch]      main -> main
+Branch 'main' set up to track remote branch 'main' from 'origin'.
+Bal@B-Pro GIT-REPO % git branch
+* main
+Bal@B-Pro GIT-REPO % git log
+commit 70e58d72b6b71396ad738b5a34f8625a3644e75e (HEAD -> main, origin/main)
+Author: Balganesh <bganesh4399@gmail.com>
+Date:   Sat Jun 1 13:40:31 2024 -0400
+
+    version 3
+
+commit 8b172e5105e4531343d7f2ca45a5812276bf96eb
+Author: Balganesh <bganesh4399@gmail.com>
+Date:   Sat Jun 1 13:36:01 2024 -0400
+
+    version 2
+
+commit a6073934bf961f0fa850fd08bb0c8262038c2878
+Author: Balganesh <bganesh4399@gmail.com>
+Date:   Sat Jun 1 13:28:18 2024 -0400
+
+    First V1 of index.html
+Bal@B-Pro GIT-REPO % git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Bal@B-Pro GIT-REPO % git add index.html 
+Bal@B-Pro GIT-REPO % git commit -m "vee 5"
+[main a33f660] vee 5
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+Bal@B-Pro GIT-REPO % git oush
+git: 'oush' is not a git command. See 'git --help'.
+
+The most similar command is
+        push
+Bal@B-Pro GIT-REPO % 
+Bal@B-Pro GIT-REPO % git push
+Counting objects: 3, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 272 bytes | 272.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/BG369/GIT-REPO.git
+   70e58d7..a33f660  main -> main
+Bal@B-Pro GIT-REPO % git remote
+origin
+Bal@B-Pro GIT-REPO % git remote -v
+origin  https://github.com/BG369/GIT-REPO.git (fetch)
+origin  https://github.com/BG369/GIT-REPO.git (push)
+Bal@B-Pro GIT-REPO % git pull
+remote: Enumerating objects: 4, done.
+remote: Counting objects: 100% (4/4), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+From https://github.com/BG369/GIT-REPO
+   a33f660..12fee84  main       -> origin/main
+Updating a33f660..12fee84
+Fast-forward
+ testremotefile | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 testremotefile
+Bal@B-Pro GIT-REPO % cd ..
+Bal@B-Pro Desktop % mkdir testrepo
+Bal@B-Pro Desktop % cd testrepo 
+Bal@B-Pro testrepo % git clone https://github.com/BG369/git_practice_01.git
+Cloning into 'git_practice_01'...
+remote: Enumerating objects: 32, done.
+remote: Counting objects: 100% (32/32), done.
+remote: Compressing objects: 100% (18/18), done.
+remote: Total 32 (delta 8), reused 24 (delta 5), pack-reused 0
+Unpacking objects: 100% (32/32), done.
+Bal@B-Pro testrepo % ls  
+git_practice_01
+Bal@B-Pro testrepo % cd git_practice_01 
+Bal@B-Pro git_practice_01 % ls
+studentID.txt           studentNames.txt        studentTransportation
+studentLocation.txt     studentSports.txt       testfile.txt
+Bal@B-Pro git_practice_01 % git log
+commit 7966b63a7c36fc80d9e3cc19a9bc04e8ac0cf182 (HEAD -> main, origin/main, origin/HEAD)
+commit 7966b63a7c36fc80d9e3cc19a9bc04e8ac0cf182 (HEAD -> main, origin/main, origin/HEAD)
+Merge: 7850bc0 0ed2260
+Author: BG369 <118924408+BG369@users.noreply.github.com>
+Date:   Sat Nov 26 17:22:39 2022 -0500
+
+    Merge pull request #2 from BG369/studentDetails
+    
+    Student details
+
+commit 7850bc07a1ae0a659c7ef7d3dd2b38915590ddfb
+Author: Balganesh <bganesh4399@gmail.com>
+Date:   Sat Nov 26 17:10:47 2022 -0500
+
+    Student transportation file has been added
+
+commit 0ed2260805ff4b305d761ec7e77a126c96b6d679
+Author: Balganesh <bganesh4399@gmail.com>
+Date:   Sat Nov 26 17:07:14 2022 -0500
+
+    extra sports of students
+
+commit 65eea3654c72237fa9c33261f8d4817d7bc9359b
+Author: Balganesh <bganesh4399@gmail.com>
+Date:   Sat Nov 26 16:43:03 2022 -0500
+
+    Students sports file has been added
+
+commit 42983f5f41d59e70a295bdedf0f156e406d71d56
+Merge: fe64d7a 0e4e90d
+Author: BG369 <118924408+BG369@users.noreply.github.com>
+Date:   Sat Nov 26 16:39:38 2022 -0500
+
+    Merge pull request #1 from BG369/studentDetails
+    
+    Student Location file added
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+...skipping...
+
+                   SUMMARY OF LESS COMMANDS
+
+      Commands marked with * may be preceded by a number, N.
+      Notes in parentheses indicate the behavior if N is given.
+      A key preceded by a caret indicates the Ctrl key; thus ^K is ctrl-K.
+
+  h  H                 Display this help.
+  q  :q  Q  :Q  ZZ     Exit.
+ ---------------------------------------------------------------------------
+
+                           MOVING
+
+  e  ^E  j  ^N  CR  *  Forward  one line   (or N lines).
+  y  ^Y  k  ^K  ^P  *  Backward one line   (or N lines).
+  f  ^F  ^V  SPACE  *  Forward  one window (or N lines).
+  b  ^B  ESC-v      *  Backward one window (or N lines).
+  z                 *  Forward  one window (and set window to N).
+  w                 *  Backward one window (and set window to N).
+  ESC-SPACE         *  Forward  one window, but don't stop at end-of-file.
+  d  ^D             *  Forward  one half-window (and set half-window to N).
+  u  ^U             *  Backward one half-window (and set half-window to N).
+  ESC-)  RightArrow *  Right one half screen width (or N positions).
+  ESC-(  LeftArrow  *  Left  one half screen width (or N positions).
+  ESC-}  ^RightArrow   Right to last column displayed.
+ :q...skipping...
+
+commit 0e4e90dba86bb49b6ae492bd4bc93f35f6d3e1db
+Author: Balganesh <bganesh4399@gmail.com>
+Date:   Sat Nov 26 16:37:15 2022 -0500
+
+    Student Location file added
+
+commit fe64d7a3226046f347d9f178260322983fb20344
+Author: Balganesh <bganesh4399@gmail.com>
+Date:   Sat Nov 26 16:33:54 2022 -0500
+
+    Student files added
+
+commit 8208c399835e73a34ddbb729b5ad4aed6679934c
+Author: Balganesh <bganesh4399@gmail.com>
+Date:   Sat Nov 26 16:30:56 2022 -0500
+
+    sample commit
+
+commit 67122d5500d5912dabbc57f93afe2d9889fffb21
+Author: BG369 <118924408+BG369@users.noreply.github.com>
+Date:   Sat Nov 26 16:26:27 2022 -0500
+
+    Create testfile.txt
+Bal@B-Pro git_practice_01 % 
+Bal@B-Pro git_practice_01 % cd ..
+Bal@B-Pro testrepo % cd ..
+Bal@B-Pro Desktop % cd GIT-REPO 
+Bal@B-Pro GIT-REPO % ls
+index.html      testremotefile
+Bal@B-Pro GIT-REPO % git log
+commit 12fee8470c697f09cfbfb8c5098cad8851e7b1cd (HEAD -> main, origin/main)
+Author: BG369 <118924408+BG369@users.noreply.github.com>
+Date:   Sat Jun 1 14:59:16 2024 -0400
+
+    Created new test file
+
+commit a33f660b188f5eee29bf39272c2f4c597ff81a17
+Author: Balganesh <bganesh4399@gmail.com>
+Date:   Sat Jun 1 14:57:05 2024 -0400
+
+    vee 5
+
+commit 70e58d72b6b71396ad738b5a34f8625a3644e75e
+Author: Balganesh <bganesh4399@gmail.com>
+Date:   Sat Jun 1 13:40:31 2024 -0400
+
+    version 3
+
+commit 8b172e5105e4531343d7f2ca45a5812276bf96eb
+Author: Balganesh <bganesh4399@gmail.com>
+Date:   Sat Jun 1 13:36:01 2024 -0400
+
+    version 2
+
+Bal@B-Pro GIT-REPO % git branch design
+Bal@B-Pro GIT-REPO % git branch
+  design
+* main
+Bal@B-Pro GIT-REPO % git checkout design
+Switched to branch 'design'
+Bal@B-Pro GIT-REPO % git branch
+* design
+  main
+Bal@B-Pro GIT-REPO % git status
+On branch design
+nothing to commit, working tree clean
+Bal@B-Pro GIT-REPO % git push origin design
+Counting objects: 3, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 324 bytes | 324.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+remote: 
+remote: Create a pull request for 'design' on GitHub by visiting:
+remote:      https://github.com/BG369/GIT-REPO/pull/new/design
+remote: 
+To https://github.com/BG369/GIT-REPO.git
+ * [new branch]      design -> design
+Bal@B-Pro GIT-REPO % git branch
+* design
+  main
+Bal@B-Pro GIT-REPO % git pull
+remote: Enumerating objects: 1, done.
+remote: Counting objects: 100% (1/1), done.
+remote: Total 1 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (1/1), done.
+From https://github.com/BG369/GIT-REPO
+   12fee84..0a9c151  main       -> origin/main
+There is no tracking information for the current branch.
+Please specify which branch you want to merge with.
+See git-pull(1) for details.
+
+    git pull <remote> <branch>
+
+If you wish to set tracking information for this branch you can do so with:
+
+    git branch --set-upstream-to=origin/<branch> design
+
+Bal@B-Pro GIT-REPO % git checkout design
+Already on 'design'
+Bal@B-Pro GIT-REPO % git checkout main
+Switched to branch 'main'
+Your branch is behind 'origin/main' by 2 commits, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+Bal@B-Pro GIT-REPO % git pull
+Updating 12fee84..0a9c151
+Fast-forward
+ index.html | 1 +
+ 1 file changed, 1 insertion(+)
+Bal@B-Pro GIT-REPO % git pull
+Already up to date.
+Bal@B-Pro GIT-REPO % git check design
+git: 'check' is not a git command. See 'git --help'.
+
+The most similar commands are
+        checkout
+        check-attr
+        cherry
+Bal@B-Pro GIT-REPO % git checkout design
+Switched to branch 'design'
+Bal@B-Pro GIT-REPO % git branch
+* design
+  main
+Bal@B-Pro GIT-REPO % git add *
+Bal@B-Pro GIT-REPO % git commit -m "conflict"
+[design 406436a] conflict
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+Bal@B-Pro GIT-REPO % git chekout main
+git: 'chekout' is not a git command. See 'git --help'.
+
+The most similar command is
+        checkout
+Bal@B-Pro GIT-REPO % git check out main
+git: 'check' is not a git command. See 'git --help'.
+
+The most similar commands are
+        checkout
+        check-attr
+        cherry
+Bal@B-Pro GIT-REPO % git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+Bal@B-Pro GIT-REPO % git status
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+Bal@B-Pro GIT-REPO % git merge design
+Auto-merging index.html
+CONFLICT (content): Merge conflict in index.html
+Automatic merge failed; fix conflicts and then commit the result.
+Bal@B-Pro GIT-REPO % git commit
+[main 4ee1a15] Merge branch 'design' into main
+Bal@B-Pro GIT-REPO % git push
+Counting objects: 7, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (7/7), done.
+Writing objects: 100% (7/7), 767 bytes | 767.00 KiB/s, done.
+Total 7 (delta 3), reused 0 (delta 0)
+remote: Resolving deltas: 100% (3/3), completed with 1 local object.
+To https://github.com/BG369/GIT-REPO.git
+   0a9c151..4ee1a15  main -> main
+Bal@B-Pro GIT-REPO % git pull
+Already up to date.
+Bal@B-Pro GIT-REPO % git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        .gitignore
+
+nothing added to commit but untracked files present (use "git add" to track)
+Bal@B-Pro GIT-REPO % git add *
+The following paths are ignored by one of your .gitignore files:
+app.log
+secrests.json
+Use -f if you really want to add them.
+Bal@B-Pro GIT-REPO % git add .gitignore 
+Bal@B-Pro GIT-REPO % git commit -m "adding git ignore file"
+[main 0142f47] adding git ignore file
+ 1 file changed, 4 insertions(+)
+ create mode 100644 .gitignore
+Bal@B-Pro GIT-REPO % git push
+Counting objects: 3, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 347 bytes | 347.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/BG369/GIT-REPO.git
+   4ee1a15..0142f47  main -> main
+Bal@B-Pro GIT-REPO % git pull
+Already up to date.
+Bal@B-Pro GIT-REPO % git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        myfile
+        test
+
+nothing added to commit but untracked files present (use "git add" to track)
+Bal@B-Pro GIT-REPO % git clean -n
+Would remove myfile
+Would remove test
+Bal@B-Pro GIT-REPO % git clean -f
+Removing myfile
+Removing test
+Bal@B-Pro GIT-REPO % 
